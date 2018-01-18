@@ -65,9 +65,8 @@ extern	char	**ft_strsplit(char const *s, char c)
 		j = i;
 		while (s[i] != c && s[i])
 			i++;
-		if (!(split[k] = (char*)malloc(i - j + 1)))
+		if (!(split[k++] = ft_strsub((char*)s, j, i - j)))
 			return (free_split(split));
-		split[k++] = ft_strsub((char*)s, j, i - j);
 	}
 	split[k] = NULL;
 	return (split);

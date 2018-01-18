@@ -74,6 +74,7 @@ SRC += ft_lstdel.c
 SRC += ft_lstadd.c
 SRC += ft_lstiter.c
 SRC += ft_lstmap.c
+SRC += ft_sqrt.c
 
 HED = libft.h
 
@@ -83,7 +84,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -c $<
+	gcc -Wall -Wextra -Werror -I ./includes -c $<
 
 clean:
 	rm -rf $(OBJ)
