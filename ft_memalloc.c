@@ -15,9 +15,7 @@
 void	*ft_memalloc(size_t size)
 {
 	void	*freshmem;
-	size_t	i;
 
-	i = 0;
 	freshmem = (void*)malloc(size);
 	if (freshmem == NULL)
 		return (NULL);
