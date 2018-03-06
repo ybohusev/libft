@@ -6,7 +6,7 @@
 /*   By: ybohusev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/04 15:56:02 by ybohusev          #+#    #+#             */
-/*   Updated: 2017/11/19 17:37:56 by ybohusev         ###   ########.fr       */
+/*   Updated: 2018/03/06 09:27:43 by ybohusev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <string.h>
 # include <stdlib.h>
+# include <stdint.h>
+# include <wchar.h>
+# include <unistd.h>
+# include "get_next_line.h"
 
 typedef	struct		s_list
 {
@@ -32,7 +36,7 @@ int					ft_isalnum(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strdup(char *src);
-int					ft_strlen(char *str);
+size_t				ft_strlen(char *str);
 char				*ft_strncpy(char *dest, const char *src, size_t num);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
@@ -40,7 +44,7 @@ char				*ft_strcat(char *dest, const char *src);
 char				*ft_strncat(char *dest, const char *src, size_t n);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 void				ft_putchar(char c);
-void				ft_putstr(const char *s);
+int					ft_putstr(const char *s);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(const char *s, int fd);
 void				ft_putnbr(int n);
@@ -82,6 +86,19 @@ void				ft_lstdel(t_list **alst, void (*del)(void*, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
 int					ft_sqrt(int nb);
+char				*ft_itoa_base(uintmax_t n, int base);
+int					ft_putwchar(unsigned int a);
+int					ft_count_octets(unsigned int a);
+char				*ft_itoa_large(intmax_t n);
+int					ft_putwstr(wchar_t *wstr);
+size_t				ft_wstrsize(wchar_t *wstr);
+size_t				ft_wstrlen(wchar_t *wstr);
+wchar_t				*ft_wstrsub(wchar_t const *s, unsigned int start,
+								size_t len);
+wchar_t				*ft_wstrnew(size_t size);
+wchar_t				*ft_wstrjoin(wchar_t const *s1, wchar_t const *s2);
+wchar_t				*ft_wstrset(wchar_t *b, int c, size_t n);
 
 #endif

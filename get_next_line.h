@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybohusev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/05 21:41:22 by ybohusev          #+#    #+#             */
-/*   Updated: 2017/11/05 21:41:24 by ybohusev         ###   ########.fr       */
+/*   Created: 2018/01/18 12:17:16 by ybohusev          #+#    #+#             */
+/*   Updated: 2018/01/18 12:17:18 by ybohusev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft.h"
+# include <string.h>
+
+# define BUFF_SIZE 1
+
+int		get_next_line(const int fd, char **line);
+
+#endif

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_wstrsub.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybohusev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/05 21:41:22 by ybohusev          #+#    #+#             */
-/*   Updated: 2017/11/05 21:41:24 by ybohusev         ###   ########.fr       */
+/*   Created: 2018/03/06 09:30:19 by ybohusev          #+#    #+#             */
+/*   Updated: 2018/03/06 09:30:20 by ybohusev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+wchar_t	*ft_wstrsub(wchar_t const *s, unsigned int start, size_t len)
 {
-	write(1, &c, 1);
+	wchar_t	*sub;
+	size_t	i;
+
+	i = 0;
+	sub = (wchar_t*)malloc(sizeof(wchar_t) * (len + 1));
+	if (sub == NULL || s == NULL)
+		return (NULL);
+	while (s[start] != '\0' && i < len)
+	{
+		sub[i++] = s[start++];
+	}
+	sub[i] = '\0';
+	return (sub);
 }

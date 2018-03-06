@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_wstrnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybohusev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/05 21:41:22 by ybohusev          #+#    #+#             */
-/*   Updated: 2017/11/05 21:41:24 by ybohusev         ###   ########.fr       */
+/*   Created: 2018/03/06 09:23:36 by ybohusev          #+#    #+#             */
+/*   Updated: 2018/03/06 09:23:38 by ybohusev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+wchar_t	*ft_wstrnew(size_t size)
 {
-	write(1, &c, 1);
+	wchar_t	*newstr;
+	size_t	i;
+
+	i = 0;
+	newstr = (wchar_t*)malloc(sizeof(wchar_t) * (size + 1));
+	if (newstr == NULL)
+		return (NULL);
+	while (i <= size)
+		newstr[i++] = '\0';
+	return (newstr);
 }

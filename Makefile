@@ -75,8 +75,18 @@ SRC += ft_lstadd.c
 SRC += ft_lstiter.c
 SRC += ft_lstmap.c
 SRC += ft_sqrt.c
-
-HED = libft.h
+SRC += ft_itoa_base.c
+SRC += ft_putwchar.c
+SRC += ft_count_octets.c
+SRC += ft_itoa_large.c
+SRC += ft_putwstr.c
+SRC += ft_wstrsize.c
+SRC += ft_wstrlen.c
+SRC += ft_wstrsub.c
+SRC += ft_wstrnew.c
+SRC += ft_wstrset.c
+SRC += ft_wstrjoin.c
+SRC += get_next_line.c
 
 all: $(NAME)
 
@@ -84,7 +94,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc -Wall -Wextra -Werror -I ./includes -c $<
+	gcc -Wall -Wextra -Werror -c $<
 
 clean:
 	rm -rf $(OBJ)

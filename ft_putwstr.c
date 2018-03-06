@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybohusev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/05 21:41:22 by ybohusev          #+#    #+#             */
-/*   Updated: 2017/11/05 21:41:24 by ybohusev         ###   ########.fr       */
+/*   Created: 2018/02/18 15:38:09 by ybohusev          #+#    #+#             */
+/*   Updated: 2018/03/06 09:25:19 by ybohusev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	ft_putchar(char c)
+int		ft_putwstr(wchar_t *wstr)
 {
-	write(1, &c, 1);
+	size_t	i;
+	int		prt;
+
+	i = 0;
+	prt = 0;
+	if (wstr != NULL)
+	{
+		while (wstr[i])
+		{
+			ft_putwchar(wstr[i]);
+			prt += ft_count_octets(wstr[i]);
+			i++;
+		}
+	}
+	return (prt);
 }
