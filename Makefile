@@ -10,9 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
+
+.PHONY: get_lib create_dirs
+
 NAME = libft.a
 
-OBJ = $(SRC:.c=.o)
+CC = gcc
+FLAGS += -Wall -Wextra -Werror -std=c11  $(if $(findstring Release, $(Target)),-o3,-g)
+
+BUILD_DIR = ./build
+
+INC_DIR = ./includes/
+
+SRC_DIR = ./src
 
 SRC =
 
@@ -88,18 +98,37 @@ SRC += ft_wstrset.c
 SRC += ft_wstrjoin.c
 SRC += get_next_line.c
 
-all: $(NAME)
+OBJ = $(SRC:.c=.o)
+CACHE = .cache
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+TARGET = $(if $(findstring Release, $(Target)),Release,Debug)
+TARGET_DIR = $(addprefix $(BUILD_DIR)/,$(TARGET))
 
-%.o: %.c
-	gcc -Wall -Wextra -Werror -c $<
+OBJ_DIR = $(addprefix $(TARGET_DIR)/,$(CACHE))
+
+SRCS = $(addprefix $(SRC_DIR)/,$(SRC))
+OBJS = $(addprefix $(OBJ_DIR)/,$(OBJ))
+
+all: build
+
+build: create_dirs $(NAME)
+
+create_dirs:
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(TARGET_DIR)
+	@mkdir -p $(OBJ_DIR)
+
+$(NAME): $(OBJS)
+	ar rcs $(addprefix $(TARGET_DIR)/,$(NAME)) $(OBJS)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(FLAGS) -I $(INC_DIR) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJS)
 
 fclean: clean
+	rm -rf $(BUILD_DIR)
 	rm -rf $(NAME)
 
 re: fclean all
