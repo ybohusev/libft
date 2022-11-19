@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
+
+#define BUFF_SIZE  1024
 
 static	int		copy_to_line(char **line, char *file)
 {

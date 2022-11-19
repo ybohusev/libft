@@ -18,7 +18,6 @@
 # include <stdint.h>
 # include <wchar.h>
 # include <unistd.h>
-# include "get_next_line.h"
 
 typedef	struct		s_list
 {
@@ -100,5 +99,6 @@ wchar_t				*ft_wstrsub(wchar_t const *s, unsigned int start,
 wchar_t				*ft_wstrnew(size_t size);
 wchar_t				*ft_wstrjoin(wchar_t const *s1, wchar_t const *s2);
 wchar_t				*ft_wstrset(wchar_t *b, int c, size_t n);
+int					get_next_line(const int fd, char **line);
 
 #endif
