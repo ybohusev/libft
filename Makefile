@@ -24,6 +24,23 @@ INC_DIR = ./includes/
 
 SRC_DIR = ./src
 
+SRC_PRINTF = 
+
+SRC_PRINTF += ft_printf/call_char.c
+SRC_PRINTF += ft_printf/call_int.c
+SRC_PRINTF += ft_printf/call_str.c
+SRC_PRINTF += ft_printf/call_uint.c
+SRC_PRINTF += ft_printf/char_width.c
+SRC_PRINTF += ft_printf/ft_printf.c
+SRC_PRINTF += ft_printf/handle_btwper.c
+SRC_PRINTF += ft_printf/hash_uint.c
+SRC_PRINTF += ft_printf/precision_int.c
+SRC_PRINTF += ft_printf/print_ptr.c
+SRC_PRINTF += ft_printf/sep_spec.c
+SRC_PRINTF += ft_printf/sign_int.c
+SRC_PRINTF += ft_printf/width_int.c
+SRC_PRINTF += ft_printf/work_with.c
+
 SRC =
 
 SRC += ft_strcat.c
@@ -97,6 +114,7 @@ SRC += ft_wstrnew.c
 SRC += ft_wstrset.c
 SRC += ft_wstrjoin.c
 SRC += get_next_line.c
+SRC += $(SRC_PRINTF)
 
 OBJ = $(SRC:.c=.o)
 CACHE = .cache
@@ -117,6 +135,7 @@ create_dirs:
 	@mkdir -p $(BUILD_DIR)
 	@mkdir -p $(TARGET_DIR)
 	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(addprefix $(OBJ_DIR)/,ft_printf)
 
 $(NAME): $(OBJS)
 	ar rcs $(addprefix $(TARGET_DIR)/,$(NAME)) $(OBJS)
